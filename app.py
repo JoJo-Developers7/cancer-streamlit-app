@@ -10,6 +10,7 @@ st.subheader("Fill the patient symptoms to predict the cancer level.")
 
 # All features except Patient Id
 features = {
+    "Patient Id": st.number_input("Patient Id", min_value=1, max_value=120, step=1),
     "Age": st.number_input("Age", min_value=1, max_value=120, step=1),
     "Gender": st.selectbox("Gender (0=Female, 1=Male)", [0, 1]),
     "Air Pollution": st.selectbox("Air Pollution", [0, 1, 2, 3, 4, 5]),
@@ -41,3 +42,4 @@ input_data = np.array([list(features.values())])
 if st.button("Predict Cancer Stage"):
     prediction = model.predict(input_data)[0]
     st.success(f"Predicted Cancer Level: {prediction}")
+
